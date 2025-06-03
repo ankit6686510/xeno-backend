@@ -9,9 +9,16 @@ const app = express();
 
 // //deployment
 // const _dirname = path.resolve();
+app.use(cors({
+    origin: process.env.NODE_ENV === "production" 
+      ? ["https://xeno-frontend.netlify.app", "https://xeno-frontend-prod.netlify.app"]
+      : process.env.CLIENT_URL,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }));
 
-
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+// app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
 app.use(express.json({ limit: "100kb" }));
 // app.use(express.urlencoded({ extended: true }));

@@ -45,6 +45,7 @@ const googleLogin = asyncHandler(async (req, res) => {
     secure: isProduction,
     sameSite: isProduction ? "None" : "Lax",
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    path: "/",
   };
 
   res.cookie("accessToken", accessToken, cookieOptions);
