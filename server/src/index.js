@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from 'url';
-import express from "express";
+// import express from "express"; // This import seems redundant as express is imported and used in app.js
 
 // Get the directory name
 const __filename = fileURLToPath(import.meta.url);
@@ -18,12 +18,12 @@ console.log('OPENAI_API_KEY exists:', !!process.env.OPENAI_API_KEY);
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
-// Deployment setup
-const _dirname = path.resolve();
-app.use(express.static(path.join(_dirname, "client/dist")));
-app.get('*', (_, res) => {
-  res.sendFile(path.resolve(_dirname, "client", "dist", "index.html"));
-});
+// // Deployment setup - Removed frontend serving code
+// const _dirname = path.resolve();
+// app.use(express.static(path.join(_dirname, "client/dist"))); // This is serving a client-side application
+// app.get('*' , (_,res)=>{
+//   res.sendFile(path.resolve(_dirname, "client", "dist", "index.html"));
+// });
 
 connectDB()
   .then(() => {
