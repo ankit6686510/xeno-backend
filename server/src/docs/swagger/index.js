@@ -19,7 +19,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.SERVER_URL || 'http://localhost:5000',
+        url: process.env.SERVER_URL || 'https://xeno-backend-production-49a5.up.railway.app/',
         description: 'Development server',
       },
     ],
