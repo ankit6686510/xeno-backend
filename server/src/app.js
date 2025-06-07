@@ -11,7 +11,7 @@ const app = express();
 // const _dirname = path.resolve();
 app.use(cors({
     origin: process.env.NODE_ENV === "production" 
-      ? ["https://xeno-frontend.netlify.app", "https://xeno-frontend-prod.netlify.app"]
+      ? ["https://xenocrmproject.netlify.app","https://xenocrmproject.netlify.app/", "https://xeno-backend-production-49a5.up.railway.app","https://xeno-backend-production-49a5.up.railway.app/"]
       : process.env.CLIENT_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
